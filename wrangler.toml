@@ -1,0 +1,8 @@
+name = "damp-block-4742"
+main = "src/worker.ts"
+compatibility_date = "2023-07-24"
+
+[[kv_namespaces]]
+binding = "Animal_Rescues_KV"
+id = "6e07585309964f36a11e058aadcc8968"
+preview_id = "d3c1f3203ee24db4849194701e6ee741"
