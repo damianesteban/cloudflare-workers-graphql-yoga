@@ -2,11 +2,13 @@ import { createSchema, createYoga } from 'graphql-yoga';
 import gql from 'graphql-tag';
 import { nanoid } from 'nanoid';
 
+// Cloudflare Workers Runtime types
 export interface Env {
 	// Binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
 	Animal_Rescues_KV: KVNamespace;
 }
 
+// GraphQL Yoga Server
 const yoga = createYoga<Env>({
 	schema: createSchema({
 		typeDefs: /* GraphQL */ gql`
@@ -60,6 +62,7 @@ const yoga = createYoga<Env>({
 	}),
 });
 
+// Fetch handler
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		return yoga.fetch(request, env);
